@@ -39,9 +39,13 @@ Known issue:
 
 ## Azure App Service / Web API :
 
-###### Trouableshooting
-* How to return JSON data from api which is calling another api via httpclient or so?
-<br /> Ans: return Content(res-data, response.Content.Headers.ContentType?.ToString() ?? "application/json");
+### Trouableshooting
+###### How to return JSON data from api which is calling another api via httpclient or so?
+Ans: return Content(res-data, response.Content.Headers.ContentType?.ToString() ?? "application/json");
+
+###### Azure - App service – API not working – App getting stopped
+In such conditions azure app is getting stopped due to some unhandled exception which are not logged since app is not running itself, to troubleshoot this **we can run app as console in Azure, which will give unhandled exceptions if any on console log**.
+
 
 ###### ENVIRONMENTS:
 Production is the default value if DOTNET_ENVIRONMENT and ASPNETCORE_ENVIRONMENT have not been set. Apps deployed to Azure are Production by default.
