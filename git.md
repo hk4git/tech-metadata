@@ -1,5 +1,5 @@
 ###### Clear - clean up unnecessary files and optimize the local repository
-`git gc --prune=now` 
+`git gc --prune=now` - Get error/warnings like: error: cannot lock ref etc...
 
 ###### Directly clone from specific branch from remote repo: this will create direct branch locally, make sure to at remote repo only
 `git clone -b <branch-name> <repository-url>`
