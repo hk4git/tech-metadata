@@ -1,5 +1,5 @@
 ###### Your branch and 'origin/dev' have diverged, and have 9 and 8 different commits each, respectively. (use "git pull" if you want to integrate the remote branch with yours)
-Use command `git merge origin/dev` & resolve conflicts manually.
+Use command `git merge origin/dev` & resolve conflicts manually. If already have commited to your branch earlier then try pushing current changes as well & then take latest again.
 
 ###### Clear - clean up unnecessary files and optimize the local repository
 `git gc --prune=now` - Get error/warnings like: error: cannot lock ref etc...
