@@ -1,6 +1,15 @@
 ###### Your branch and 'origin/dev' have diverged, and have 9 and 8 different commits each, respectively. (use "git pull" if you want to integrate the remote branch with yours)
 Use command `git merge origin/dev` & resolve conflicts manually. If already have commited to your branch earlier then try pushing current changes as well & then take latest again.
 
+###### hint: Updates were rejected because the tip of your current branch is behind
+! [rejected]          head -> '' (non-fast-forward)
+error: failed to push some refs to ''
+<br>hint: Updates were rejected because the tip of your current branch is behind
+<br>hint: its remote counterpart. If you want to integrate the remote changes,
+<br>hint: use 'git pull' before pushing again.
+<br>hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+<br>**Solution:** git pull origin 'remote counterpart' not from which this is branched out e.g. origin/dev
+
 ###### Clear - clean up unnecessary files and optimize the local repository
 `git gc --prune=now` - Get error/warnings like: error: cannot lock ref etc...
 
