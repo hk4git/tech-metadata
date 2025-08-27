@@ -1,3 +1,7 @@
+## Architechure Cloud
+
+Azure FrontDoor (Global) -> Azure Application Gateways (Regional)
+
 ## AAD:
 ### Workload identity federation: 
 You create a trust relationship between an external identity provider (IdP) and an app in Microsoft Entra ID by configuring a federated identity credential.
