@@ -1,6 +1,6 @@
 ## Architechure Cloud
 
-Azure FrontDoor (Global) -> Azure Application Gateways (Regional) / API Management Service
+Azure FrontDoor (Global) -> Application Gateways (Regional load balancer) / API Management (APIM)
 
 ## AAD:
 ### Workload identity federation: 
