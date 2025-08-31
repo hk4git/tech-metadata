@@ -1,6 +1,12 @@
 ## Architechure Cloud
 
 Azure FrontDoor (Global) -> Application Gateways (Regional load balancer) / API Management (APIM)
+<br>Azure Virtual Network VNet -> SubNet -> keep all private.
+  - For External (internet) access
+    - use NAT Gateway
+    - Azure Load Balancer (with public ip configuration)
+    - Give public ip address configuration directly.
+    - Use Azure filrewall / NVA - Network Virtual Appliance with a public ip
 
 ## AAD:
 ### Workload identity federation: 
