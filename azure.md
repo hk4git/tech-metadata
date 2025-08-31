@@ -9,6 +9,8 @@ Azure FrontDoor (Global) -> Application Gateways (Regional load balancer) / API 
     - Use Azure filrewall / NVA - Network Virtual Appliance with a public ip
 - Connect VNet in same or different regions by Netork Peering., Peering is no transitive.
   - can also peer just Subnets
+- Private Endpoint - to make subnet visible (and talk to) to PaaS services like Storage services
+- Private Links - to disable public address of PaaS service & enable it via private link
 
 ## AAD:
 ### Workload identity federation: 
