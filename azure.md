@@ -7,6 +7,8 @@ Azure FrontDoor (Global) -> Application Gateways (Regional load balancer) / API 
     - Azure Load Balancer (with public ip configuration)
     - Give public ip address configuration directly.
     - Use Azure filrewall / NVA - Network Virtual Appliance with a public ip
+- Connect VNet in same or different regions by Netork Peering., Peering is no transitive.
+  - can also peer just Subnets
 
 ## AAD:
 ### Workload identity federation: 
