@@ -13,6 +13,15 @@ Azure FrontDoor (Global) -> Application Gateways (Regional load balancer) / API 
 - Private Links - to disable public address of PaaS service & enable it via private link
 
 ## AAD:
+
+#### AAD configurations to call downstream apis from middle-tier api
+To call **downstream api** from **middle-tier api** below configurations requires in Azure AAD:
+<br><br>In **middle-tier api**: API permissions -> Configured permissions -> Add a permission -> APIs my organization uses -> provide `Client ID of downstream api` -> select scope/permission E.g. `*/access_as_user` -> Add Permission 
+<br><br>In **downstream api**: Expose an API -> Authorized client applications -> Add a client application -> provide `Client ID of middle-tier api` with allowed scope E.g. `*/access_as_user`
+
+Note: this may help resolve issue/exception/error: `MsalUiRequiredException: AADSTS65001: The user or administrator has not consented to use the application with ID '' named ''. Send an interactive authorization request for this user and resource. Trace ID:  Correlation ID:  Timestamp:  The returned error contains a claims challenge. For additional info on how to handle claims related to multifactor authentication, Conditional Access, and incremental consent, see https://aka.ms/msal-conditional-access-claims. If you are using the On-Behalf-Of flow, see https://aka.ms/msal-conditional-access-claims-obo for details.`
+
+
 ### Workload identity federation: 
 You create a trust relationship between an external identity provider (IdP) and an app in Microsoft Entra ID by configuring a federated identity credential.
 
