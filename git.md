@@ -1,4 +1,4 @@
-###### Your branch and 'origin/dev' have diverged, and have 9 and 8 different commits each, respectively. (use "git pull" if you want to integrate the remote branch with yours)
+###### Your branch and 'origin/dev' have diverged, and have 9 and 8 different commits each, respectively. (use "git pull" if you want to integrate the remote branch with yours) | Merge your local current with remote origin/dev branch
 Use command `git merge origin/dev` & resolve conflicts manually. If already have commited to your branch earlier then try pushing current changes as well & then take latest again.
 
 ###### hint: Updates were rejected because the tip of your current branch is behind
