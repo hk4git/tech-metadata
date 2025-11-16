@@ -33,16 +33,17 @@ Fluent AI is a collection of UX guidance, patterns, and React components for bui
 
 ### NPM Commands
 Create custom NPM Package
-`npm init -y` => default value
-`npm init`
-`npm init --scope=hk` => to create scope pkg e.g. @hk/pkg"
-`npm link` => to test locally publish
-`npm link PACKAGENAME` -=> will locally install package.
-`npm login` => to publish, need npm account
-`npm publish` => user should have logged in, verified email
-`npm publish --access=publish` => for namspace packages to make them public @hk/pkg
-https://www.youtube.com/watch?v=RutOnwt_vLI
-https://www.youtube.com/watch?v=IfZV_XGotOQ
+</br>`npm init -y` => default value
+</br>`npm init`
+</br>`npm init --scope=hk` => to create scope pkg e.g. @hk/pkg"
+</br>`npm link` => to test locally publish
+</br>`npm link PACKAGENAME` -=> will locally install package.
+</br>`npm login` => to publish, need npm account
+</br>`npm publish` => user should have logged in, verified email
+</br>`npm publish --access=publish` => for namspace packages to make them public @hk/pkg
+</br> Refrences: 
+</br>https://www.youtube.com/watch?v=RutOnwt_vLI
+</br>https://www.youtube.com/watch?v=IfZV_XGotOQ
 
 ### Routine:
 - `npm install -g vsts-npm-auth --registry https://registry.npmjs.com --always-auth false`
