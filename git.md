@@ -8,7 +8,7 @@ error: failed to push some refs to ''
 <br>hint: its remote counterpart. If you want to integrate the remote changes,
 <br>hint: use 'git pull' before pushing again.
 <br>hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-<br>**Solution:** git pull origin 'remote counterpart' not from which this is branched out e.g. origin/dev
+<br>**Solution:** `git pull origin {remote counterpart}` not from which this is branched out e.g. origin/dev
 
 ###### Clear - clean up unnecessary files and optimize the local repository
 `git gc --prune=now` - Get error/warnings like: error: cannot lock ref etc...
