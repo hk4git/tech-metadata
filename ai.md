@@ -1,4 +1,19 @@
-## M365 Copilot:
+# AI
+## AI General
+### AI Prompt
+**ChatGPT Enterprise** is designed for work. Unlike public AI tools, it's built to securely use our own data—such as documents, messages, and schedules—only when we choose to connect them.
+
+- **AI Slop**: AI output might look structured and professional, it can lack quality and substance. This type of output is known as AI Slop.
+- The Five Principles:
+  - Be Specific and Clear: AI thrives on clarity!
+  - Provide Context: Context sets the direction.
+  - Set Constraints: Constraints create focus.
+  - Assign a Role: Roles shape perspective.
+  - Iterate & Refine: Great prompts are built, not written.
+
+
+
+### M365 Copilot:
 Enabling developer mode: To enable developer mode, in Copilot Chat, type `-developer on`. To disable developer mode, type `-developer off`.
 <br /> https://learn.microsoft.com/en-us/collections/p11pb18wmq6xqq
 <br /> https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-debug-local
@@ -7,7 +22,7 @@ Enabling developer mode: To enable developer mode, in Copilot Chat, type `-devel
 
 ###### M365 Declarative agent requires OpenAPI url are available over internet so local url will not work, Use `DevTunnel` to expose local url to make it available over internet.
 
-## Teams Agents:
+### Teams Agents:
 https://www.youtube.com/watch?v=7bL_kaA9cag
 https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-confirmation-prompts
 
