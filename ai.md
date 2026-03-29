@@ -1,7 +1,9 @@
 # AI
 ## AI General
 ### AI Prompt
-**ChatGPT Enterprise** is designed for work. Unlike public AI tools, it's built to securely use our own data—such as documents, messages, and schedules—only when we choose to connect them.
+**ChatGPT Enterprise** is designed for work. Unlike public AI tools, it's built to securely use our own data—such as documents, messages, and schedules—only when we choose to connect them. ChatGPT Connectors let you securely link your ORG apps—such as SharePoint, Outlook, Calendar, and Teams—to ChatGPT Enterprise so it can reference your internal information while you work. The connection steps are simple and consistent, making it easy to enable the tools you need without extra setup or technical knowledge.
+
+**Six Ways AI Can Support Our Work**: 1) UNDERSTAND, 2) CLARIFY, 3) IMPROVE, 4) PREPARE, 5) ADAPT, 6) DECIDE
 
 - **AI Slop**: AI output might look structured and professional, it can lack quality and substance. This type of output is known as AI Slop.
 - The Five Principles:
