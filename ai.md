@@ -33,3 +33,6 @@ OpenAPI:
 
 https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-debug-local
 
+### MCP
+- run inspector command - `npx @modelcontextprotocol/inspector`
+
