@@ -21,6 +21,10 @@ To call **downstream api** from **middle-tier api** below configurations require
 
 Note: this may help resolve issue/exception/error: `MsalUiRequiredException: AADSTS65001: The user or administrator has not consented to use the application with ID '' named ''. Send an interactive authorization request for this user and resource. Trace ID:  Correlation ID:  Timestamp:  The returned error contains a claims challenge. For additional info on how to handle claims related to multifactor authentication, Conditional Access, and incremental consent, see https://aka.ms/msal-conditional-access-claims. If you are using the On-Behalf-Of flow, see https://aka.ms/msal-conditional-access-claims-obo for details.`
 
+#### Permissions - Delegated vs Application
+- User consent availability also depends on your tenant's [app consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies?pivots=ms-powershell) policies. Even when admin consent isn't required for a permission by default, your organization's policies may still restrict user consent Detailed - https://learn.microsoft.com/en-us/graph/permissions-overview?tabs=http 
+- Microsoft recommended user consent policy - End users can consent for any user consentable delegated permissions EXCEPT:```Files.Read.All, Files.ReadWrite.All, Sites.Read.All, Sites.ReadWrite.All, Mail.Read, Mail.ReadWrite, Mail.ReadBasic, Mail.Read.Shared, Mail.ReadBasic.Shared, Mail.ReadWrite.Shared, MailboxItem.Read, Calendars.Read, Calendars.ReadBasic, Calendars.ReadWrite, Calendars.Read.Shared, Calendars.ReadWrite.Shared, Chat.Read, Chat.ReadWrite, OnlineMeetings.Read, OnlineMeetings.ReadWrite, MailBoxFolder.Read, MailBoxFolder.ReadWrite, MailBoxSettings.Read, MailBoxSettings.ReadWrite, EAS.AccessAsUser.All, EWS.AccessAsUser.All, IMAP.AccessAsUser.All, POP.AccessAsUser.All``` Refer - https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies?pivots=ms-powershell
+
 
 ### Workload identity federation: 
 You create a trust relationship between an external identity provider (IdP) and an app in Microsoft Entra ID by configuring a federated identity credential.
