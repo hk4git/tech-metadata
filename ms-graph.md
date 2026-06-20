@@ -2,6 +2,8 @@
 ## Graph 2
 ### Graph 3
 #### Graph 4
+Resources  
+- https://github.com/microsoftgraph/msgraph-sdk-powershell
 
 #### REST API - CRUD Operations
 GET - query data. What you query for is specified as the url path + query string parameters `https://graph.microsoft.com/v1.0/{resource}?[query parameters]` E.g.
