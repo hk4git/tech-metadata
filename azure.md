@@ -82,4 +82,15 @@ To set the environment in an Azure App Service: provide Settings -> Environment 
 ## Azure Synapse: Pipilines & Connections
 For M365 agent / Copilot: Data enngineering, filtering, can be done via synapse pipiline. Process data from main database, transform for AI to query etc.
 
+## Azure Cosmos
+#### Desgin considerations
+- https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/agentic-memories
+- https://learn.microsoft.com/en-us/azure/cosmos-db/modeling-data
+- https://learn.microsoft.com/en-us/azure/cosmos-db/concepts-limits#per-item-limits
+- https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning
+- https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/storage?tabs=csharp
+- https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction
+
+
+
 
