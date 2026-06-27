@@ -26,5 +26,6 @@ Script Lab: Office Task Pane Add-in for Word, Excel, & PowerPoint
   - `displayDialogAsync()` Scenarios: access to third-party service that supports OAuth2
 - Callback token (as per permissions in manifest)
   - `getCallbackTokenAsync()` Scenarios: access user's mailbox from your server via EWS/Outlook REST
+- SSO
 ##### Office 5
 ###### Office 6
