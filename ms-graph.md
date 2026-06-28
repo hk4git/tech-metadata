@@ -50,3 +50,68 @@ Paging - for large datasets or parallel processing
 Batching - post a payload with multiple requests to be executed on the server
  - https://graph.microsoft.com/v1.0/$batch
  - `{ "requests": [ {"id": "1", "method": "GET", "url": "/me" }, { "id": "2", "method": "GET", "url": "/me/photo/$value"} ]]}`
+
+#### Change notficiations (webhooks) | track changes (delta queries)
+- Subscribe to notifications
+- Subscription expiration (Maximum subscription length is 3 days for most resources.)
+
+- Example: User updates
+```
+POST https://graph.microsoft.com/v1.0/subscriptions HTTP/1.1
+Authorization: bearer toekn
+Content-Type: application/json; charset=utf-8
+Host: graph.microsoft.com
+Content-Length: 199
+{
+  "changeType": "updated",
+  "clientState": "SecretClientState",
+  "notificationUrl": "https://1a3f84c2.ngrok.io/api/notifications",
+  "resource": "/users",
+  "expirationDateTime": "2019-03-11T04:30:28.2257768+00:00"
+}
+```
+- Renew subscriptions
+```
+PATCH https://graph.microsoft.com/v1.0/subscriptions/47e861c4-2db2-
+455a-8774-57658ba185a1 HTTP/1.1
+Authorization: bearer token
+Content-Type: application/json; charset=utf-8
+Host: graph.microsoft.com
+Content-Length: 134
+{
+  "expirationDateTime": "2019-03-14T04:33:36.2394526+00:00"
+}
+```
+- Subscription management endpoints
+  - Create a subscription - POST /subscriptions
+  - List subscriptions - GET /subscriptions
+  - Get a subscription - GET /subscriptions/ {id}
+  - Update a subscription - PATCH /subscriptions/ {id}
+  - Delete a subscription - DELETE /subscriptions/ {id}
+- Track Changes with the Microsoft Graph API
+  - Allows retrieving changes since you last requested them
+  - Available for messages, groups, users and events
+  - Use the /delta function to request changes
+  - Store returned the deltaLink for subsequent requests
+  - Use $select to narrow what you want changes for
+- Example: User track changes
+```
+GET https://graph.microsoft.com/v1.0/users/delta HTTP/1.1
+Authorization: bearer token
+Host: graph.microsoft.com
+
+Response:
+{
+  "@odata.context":
+  "https://graph.microsoft.com/v1.0/$metadata#users",
+  "@odata.deltaLink":
+  "https://graph.microsoft.com/v1.0/users/delta?
+  $skiptoken=moXwmvoHW4B2uevGNLf2Brpv8sm ... ",
+}
+```
+- Use change notifications + track changes together
+  - For robust synchronization use notifications with track changes
+  - Subscribe for notifications
+  - When a notification is received use track changes to retrieve changes
+  - If a notification is missed changes will not be missed
+  - Add a full regular query at a long interval to be 100% certain no changes have been missed
