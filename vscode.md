@@ -1,0 +1,24 @@
+
+### Sample .rest file
+```
+### HK
+
+@api=https://localhost:1234/api @token=
+
+### GET https://localhost/api/user
+Content-Type: application/json
+authorization: Bearer {{token}}
+
+### POST https://localhost/api/user
+# POST https://localhost/api2/user
+# POST https://localhost2/api2/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+# X-SourceApp-Name: CustomHeader
+# X-Correlation-Id: 8888
+# Ocp-Apim-Subscription-Key: GUID
+
+{
+"data": ""
+}
+```
