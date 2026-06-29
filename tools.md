@@ -7,8 +7,7 @@ Expose local URLs to make them publicly available.
 ### PowerShell Commands
 
 ```powershell
-devtunnel host -p 44319 --protocol https --allow-anonymous
-devtunnel host -p 5243 --protocol https --allow-anonymous
+devtunnel host -p 12345(port-numer) --protocol https --allow-anonymous
 ```
 
 ---
