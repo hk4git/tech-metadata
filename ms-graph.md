@@ -115,3 +115,9 @@ Response:
   - When a notification is received use track changes to retrieve changes
   - If a notification is missed changes will not be missed
   - Add a full regular query at a long interval to be 100% certain no changes have been missed
+
+#### TODO API
+https://learn.microsoft.com/en-us/graph/api/resources/todo-overview?view=graph-rest-1.0
+Microsoft To Do API and Graph Tasks endpoint, including support for both the **legacy Exchange Tasks endpoint** (/me/tasks) and the **Microsoft To Do API** with tenant-level detection of which is active.
+https://devblogs.microsoft.com/microsoft365dev/the-new-improved-microsoft-graph-to-do-apis-are-now-in-public-preview/
+
