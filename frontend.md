@@ -1,3 +1,14 @@
+# Frontend
+
+## Trouableshooting:
+
+How to Refer local npm package? Run the source application and generate dist/js file and refer in another application as below:
+- AppFile.js
+	- `import { WebChat } from "C:/Users/u/source/repos/soltion/dist/web-chat.js";`
+	- `import "C:/Users/u/source/repos/solution/dist/style.css";`
+- custom-types.d.ts:
+	- `declare module 'C:/Users/u/source/repos/solution/dist';`
+
 ## Javascript | Commmon
 - `import a, { b, c } from ''`
 We put non default exports in {} braces e.g. a-> default export, b, c -> non default expoerts.
