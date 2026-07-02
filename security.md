@@ -5,7 +5,7 @@
 ##### Security 5
 ###### Security 6
 
-# Authentication and Authoirization
+# Authentication and Authorization
 ## ABC-MS Tenant : Entra ID
 In ABC-MS tenant new Entra App registrations can be created with:  
  - Branding & properties: `Service management reference` is required.
@@ -122,3 +122,35 @@ ab3be6b7-f5df-413d-ac2d-abf1e3fd9c0b
   "<<URI2>>"
 ]
 ```
+
+## M365 Declarative Agent - Configurations setup Steps - to run locally
+
+### Install Tools and Extensions 
+ - Install **Microsoft 365 Agents Toolkit** in VS code extension
+ - Install **Microsoft dev tunnel**
+
+### Follow below steps
+1. Create Teams App from [Developer Portal](https://dev.teams.microsoft.com/home) Note `App ID`
+2. SSO Configuration: Refer - [Configure Authentication for API plugins in Agents in Microsoft 365 Copilot | Microsoft Learn](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-authentication)
+Settings:
+- **Client ID**: use existing app id `{App / client Id}`
+- **Which app (client) is this registration for?** select- `Any Teams app (for testing and store validation only)`
+- **Update the Microsoft Entra app registration** - use existing local application app id `{App / client Id}` and just configure "**identifierUris**"
+Note `Registration ID`, `Application ID URI`
+3. From repository, open solution "**src\app.sln**" .net solution and run it. Note the `URL:PORT`
+4. Open powershell and run command "**devtunnel host -p {PORT} --protocol https/http --allow-anonymous**" This will provide URL click on URL and select approve and Copy this `DevTunnelURL`  
+You may need to sign-in to devtunnel using command `devtunnel login` first
+5. From repository, open solution "**m365-agent**" folder independently in VS Code to enable **Microsoft 365 Agents Toolkit** settings. 
+- Open "**.env.dev**" file & do following env file updates:
+    - **TEAMS_APP_ID**: update value of `App ID` from step 1
+    - **API_BASE_URL**: update value of `DevTunnelURL` from step 4
+    - **TEAMS_APP_REFERENCE_ID**: update value of `Registration ID` from step 2
+6. For Solution open in VS Code, from Left Panel click on **Microsoft 365 Agents Toolkit**, Provision, select "dev", this will raise few popup for sign-in, sign-in with your account for all popups, then it should successfully run and click build package like "agent-dev.zip".
+7. Install "agent-dev.zip" package
+ - Open your MS Teams
+ - Click on **+Apps** from left panel
+ - Click on **Manager your apps**
+ - Click on **Upload an app**, select **Upload a custom app**, select above zip package created.
+ - Click an open with Copilot & it should look something like below:
+8. Ask agent a question and it should hit your local app api (solution that run in step 3)
+ 
