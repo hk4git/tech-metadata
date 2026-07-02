@@ -5,7 +5,8 @@
 ##### Security 5
 ###### Security 6
 
-## ABC-MS Tenant
+# Authentication and Authoirization
+## ABC-MS Tenant : Entra ID
 In ABC-MS tenant new Entra App registrations can be created with:  
  - Branding & properties: `Service management reference` is required.
  - Authentication: Used sample web Redirect URIs
@@ -28,3 +29,53 @@ In ABC-MS tenant new Entra App registrations can be created with:
      - Custom Apps: `{Custom Application (client) ID}`
  - App roles: used to authorized only certain group of users to allow to access the application.
  - Manifest: Can manually edit to add multiple `identifierUris` since UI allows only one, but from this manifest file you can add multiple `Application ID URI` and use it
+
+## Custom Engine Agents (created by M365 Agents SDK) configurations
+
+### Entra ID SSO authentication configurations
+Refer - [Implement Authentication with Federated Identity Credentials - Bot Service | Microsoft Learn](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-authentication-federated-credential?view=azure-bot-service-4.0&tabs=csharp)
+
+#### 1) Entra app changes - For **Teams SSO** open the existing App Registration for the Agent/Azure Bot.
+- Open [Microsoft Entra admin center](https://entra.microsoft.com/). 
+- On the **Authentication** pane if you don't see a **Web** platform, selct **+ Add a platform**.
+    - Select **Web**
+    - Enter the **Redirect URI** as 
+     ```
+     https://token.botframework.com/.auth/web/redirect
+     https://teams.microsoft.com/api/platform/v1.0/oAuthConsentRedirect
+     https://teams.microsoft.com/api/platform/v1.0/oAuthRedirect
+
+     ```
+    - Click **Save**
+- In the navigation pane, select **Certificates & secrets** to add credentials for your application.
+  - Under **Federated Credentials**, select **Add Credentials**.
+    - Choose the **Federated credential scenario** to **Other Issuer**
+    - **Issuer** : `https://login.microsoftonline.com/{tenant ID}/v2.0`
+    - **Type**: select **Explicit subject identifier**
+    - **Value**: Should be in format - `/eid1/c/pub/t/{base64 encoded customer tenant ID}/a/{base64 encoded first-party app client ID}/{unique-identifier-for-projected-identity}`  
+     - **Name**: Name of your choice, eg. "agent-sso-oauth"
+     - **Description**: Description of your choice
+     - Audience: `api://AzureADTokenExchange`
+- Add/Update **API permissions**
+  - Click on **+ Add a permission**
+  - **Select an API**: select **APIs my organization uses**
+    - Search AAD APP Name / Client Id
+  - Select **Delegated permissions**
+    - Select **access_as_user** [Select for which Admin consent is not required]
+  - Click **Add Permission**
+- Update Manifest, Click **Manifest** in the left rail
+  - Add/Update **identifierUris** array, Add Bot App API URI, This format is REQUIRED `api://botid-{appid}`
+  - Click on **Save**  
+
+### Azure Bot Services Configuration
+#### OAuth Configuration: default-sso
+
+Click on **Add OAuth Connection Settings**
+- **Name:** Provide exactly as `default-sso`
+- **Service Provider:** select **AAD v2 with Federated Credentials**
+- **Client ID:** `{AAD Client Id}`
+- **Unique Subject Identifier:** From Entra Id App Reg -> Certificates & secrets -> `Subject identifier or claims matching expression`
+- **Token Exchange URL:** Format `api://botid-{appid}`
+- **Login URL:** 
+- **Tenant ID:** `{tenant ID}`
+- **Scopes:** `api://{AAD Client Id}/access_as_user`
