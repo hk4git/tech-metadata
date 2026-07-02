@@ -1,5 +1,10 @@
 # Tools & Utilities
 
+## GitHub Copilot
+Create custom instructions and agents in GitHub Copilot  
+.github/instructions/follow-standards.md  
+.github/agents/reviews.md -> kind of custom agents  
+
 ## DevTunnel
 
 Expose local URLs to make them publicly available.
