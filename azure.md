@@ -82,7 +82,15 @@ To set the environment in an Azure App Service: provide Settings -> Environment 
 ## Azure Synapse: Pipilines & Connections
 For M365 agent / Copilot: Data enngineering, filtering, can be done via synapse pipiline. Process data from main database, transform for AI to query etc.
 
+## API Management
+Configured APIM policy to token validation using AUD match
+```
+<claim name="aud" match="any">
+	<value>{{AUD-GUID}}</value>
+</claim>
+```
 ## Azure Cosmos
+Role access `az cosmosdb sql role assignment create --account-name {name} --resource-group {name} --scope "/" --principal-id {GIUD} --role-definition-id "00000000-0000-0000-0000-000000000002" --subscription {name}` to access cosmos database
 #### Desgin considerations
 - https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/agentic-memories
 - https://learn.microsoft.com/en-us/azure/cosmos-db/modeling-data
