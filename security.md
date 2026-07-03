@@ -13,7 +13,7 @@ In ABC-MS tenant new Entra App registrations can be created with:
    - For Bot: `https://teams.microsoft.com/api/platform/v1.0/oAuthRedirect`
    - For Bot: `https://token.botframework.com/.auth/web/redirect`
    - For Bot: `https://teams.microsoft.com/api/platform/v1.0/oAuthConsentRedirect`
- - Certificates & secrets: No `Certificates` or `client secrets` allowed, only `Federated credentials` allowed & used with Managed Identity
+ - Certificates & secrets: No `Certificates` or `client secrets` allowed, only `Federated credentials` allowed. `Federated credentials` ideally created/used with Managed Identity
  - API permissions: For Graph only `User.Read` is allowed
  - Expose an API:
    - Application ID URI: ideally use as `api://{Application (client) ID}/`
@@ -154,3 +154,5 @@ You may need to sign-in to devtunnel using command `devtunnel login` first
  - Click an open with Copilot & it should look something like below:
 8. Ask agent a question and it should hit your local app api (solution that run in step 3)
  
+# Knowledge
+Creating **user managed identity** in azure portal creates - **Enterprise Application** in a Entra ID
