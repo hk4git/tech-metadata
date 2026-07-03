@@ -33,6 +33,90 @@ OpenAPI:
 
 https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-debug-local
 
+### Example
+Sample instructions for Declarative Agent format can be used:
+```
+# OBJECTIVE
+
+# RESPONSE RULES
+- rules
+
+# WORKFLOW
+
+## Step 1: Evaluate Query for `OneDriveAndSharePoint`
+- **Goal:** goals
+- **Action:** 
+  - action
+    - take action
+  - Example: example
+- **Transition:** Keyword found → `OneDriveAndSharePoint`. Otherwise → Step 2.
+
+## Step 2: Route to `get_answer` (Default)
+- **Goal:** goal 2
+- **Action:** action 2:
+- **Transition:** Execute query and present results.
+
+# OUTPUT FORMATTING
+- output
+
+# EXAMPLES
+
+## Valid Routing Examples
+
+### → `OneDriveAndSharePoint`:
+**User:** "user ask"
+**Action:** Route to `OneDriveAndSharePoint`
+
+### → `get_answer`:
+- sample question
+
+## Invalid Routing Examples
+- example
+
+# ERROR HANDLING
+- example
+
+# CONVERSATIONAL CONTEXT
+- example
+
+# DATA SOURCE INTEGRITY
+- example
+```
+
+Sample instruction for Semantic Kernel plugin:
+```
+# Instructions
+
+## Purpose
+
+## Guidelines
+
+## Execution Steps
+1. Read the original content.
+
+## Input
+- Data: {{$Data}}
+
+
+## Output
+- output
+
+## Example Output 
+
+Example 1:
+Example 2:
+```
+
+
 ### MCP
 - run inspector command - `npx @modelcontextprotocol/inspector`
+
+# Explore
+- LLMOps / MLOps frameworks
+- Harmful AI Content filter for CEA (Custom Engine Agent)
+- Explore WorkIQ - to read Teams Chat/Messages etc.
+- AI Lend Engineering 20% target
+- Agency for team
+- RAI | SDL | Privacy Review | Threat Model | TrIP
+  
 
