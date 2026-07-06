@@ -16,6 +16,10 @@ Users can run Outlook add-ins when they view, reply, or create emails, meeting r
 Note: Add-ins that interact with the user's calendar, meetings, or appointments are available only if the user opens the calendar in Outlook, not Teams. However, you can create a Teams meeting app and surface it in Outlook. For more information, see Extend a Teams meeting app to Outlook.
 - https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/hello-world/outlook-hello-world
 
+#### Install custom plugin
+Install a custom add-in from a file in new Outlook
+In your preferred browser, go to [Outlook on the web](https://aka.ms/olksideload), and the Add-Ins for Outlook window will open. Refer - https://support.microsoft.com/en-us/outlook/getstarted/use-add-ins-in-outlook
+
 ## Office 2
 ### Office 3
 #### Office Complementary tools
