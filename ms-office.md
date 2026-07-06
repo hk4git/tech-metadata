@@ -1,5 +1,6 @@
 # Microsoft Learn - Office Add-ins 
 - https://www.youtube.com/@MicrosoftCommunityLearning/search?query=Office%20add-ins
+- https://www.youtube.com/@Microsoft365Developer/search?query=Office%20add-ins
 - https://learn.microsoft.com/en-us/office/dev/add-ins/
 
 **Extend Office functionality**
