@@ -18,7 +18,9 @@ Note: Add-ins that interact with the user's calendar, meetings, or appointments 
 
 #### Local Setup
 
-1) Create package for sideloading. - Use `npx office-addin-manifest` for packaging - [office-addin-manifest](https://github.com/OfficeDev/Office-Addin-Scripts/tree/master/packages/office-addin-manifest)
+1) Run server - npm run dev-server  
+   1.1) Run dev tunnnel if required
+2) Create package for sideloading. - Use `npx office-addin-manifest` for packaging - [office-addin-manifest](https://github.com/OfficeDev/Office-Addin-Scripts/tree/master/packages/office-addin-manifest)
 ```powershell
 # Package next to the manifest (default output)
 npx office-addin-manifest export -m manifest.json
@@ -26,10 +28,10 @@ npx office-addin-manifest export -m manifest.json
 # Package to a specific path
 npx office-addin-manifest export -m manifest.json -o ./dist/manifest.zip
 ```
-2) Install package using command (ATK - Agent ToolKit) line  
+4) Install package using command (ATK - Agent ToolKit) line  
    `npx -p @microsoft/m365agentstoolkit-cli atk install --file-path ".\manifest.zip" --interactive false`
 
-3) OR Install custom plugin from manual plugin file  
+4) OR Install custom plugin from manual plugin file  
 Install a custom add-in from a file in new Outlook
 In your preferred browser, go to [Outlook on the web](https://aka.ms/olksideload), and the Add-Ins for Outlook window will open. Refer - https://support.microsoft.com/en-us/outlook/getstarted/use-add-ins-in-outlook
 
