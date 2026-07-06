@@ -16,7 +16,20 @@ Users can run Outlook add-ins when they view, reply, or create emails, meeting r
 Note: Add-ins that interact with the user's calendar, meetings, or appointments are available only if the user opens the calendar in Outlook, not Teams. However, you can create a Teams meeting app and surface it in Outlook. For more information, see Extend a Teams meeting app to Outlook.
 - https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/hello-world/outlook-hello-world
 
-#### Install custom plugin
+#### Local Setup
+
+1) Create package for sideloading. - Use `npx office-addin-manifest` for packaging - [office-addin-manifest](https://github.com/OfficeDev/Office-Addin-Scripts/tree/master/packages/office-addin-manifest)
+```powershell
+# Package next to the manifest (default output)
+npx office-addin-manifest export -m manifest.json
+
+# Package to a specific path
+npx office-addin-manifest export -m manifest.json -o ./dist/manifest.zip
+```
+2) Install package using command (ATK - Agent ToolKit) line  
+   `npx -p @microsoft/m365agentstoolkit-cli atk install --file-path ".\manifest.zip" --interactive false`
+
+3) OR Install custom plugin from manual plugin file  
 Install a custom add-in from a file in new Outlook
 In your preferred browser, go to [Outlook on the web](https://aka.ms/olksideload), and the Add-Ins for Outlook window will open. Refer - https://support.microsoft.com/en-us/outlook/getstarted/use-add-ins-in-outlook
 
