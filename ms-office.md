@@ -1,4 +1,21 @@
-# Office 1
+# Microsoft Learn - Office Add-ins 
+- https://learn.microsoft.com/en-us/office/dev/add-ins/
+
+**Extend Office functionality**
+You can add new functionality to Office applications through the following features:
+- Custom ribbon buttons and menu commands (collectively called "**add-in commands**").
+- Insertable **task panes** with a webview control that can do almost anything a webpage can do inside a browser.
+- **Event handlers** that respond to events in the Office document or Office application.  
+Custom UI, task panes, and event handlers are specified in the add-in manifest.
+
+#### Extend Outlook functionality
+Users can run Outlook add-ins when they view, reply, or create emails, meeting requests, meeting responses, meeting cancellations, or appointments. Outlook add-ins can do the following tasks:
+- Extend the Office app ribbon.
+- Display contextually next to an Outlook item when you're viewing or composing it.
+- Perform a task when a specific event occurs, such as when a user creates a new message.  
+Note: Add-ins that interact with the user's calendar, meetings, or appointments are available only if the user opens the calendar in Outlook, not Teams. However, you can create a Teams meeting app and surface it in Outlook. For more information, see Extend a Teams meeting app to Outlook.
+- https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/hello-world/outlook-hello-world
+
 ## Office 2
 ### Office 3
 #### Office Complementary tools
