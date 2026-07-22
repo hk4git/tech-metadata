@@ -14,6 +14,9 @@
   - Iterate & Refine: Great prompts are built, not written.
 
 
+# Microsoft 
+## IQ
+- Microsoft IQ: Work IQ, Fabric IQ (databases), Foundry IQ (AI)
 
 ### M365 Copilot:
 Enabling developer mode: To enable developer mode, in Copilot Chat, type `-developer on`. To disable developer mode, type `-developer off`.
