@@ -16,7 +16,8 @@
 
 # Microsoft 
 ## IQ
-- Microsoft IQ: Work IQ, Fabric IQ (databases), Foundry IQ (AI)
+- Microsoft IQ (intelligence, tools): Work IQ (chat, mail), Fabric IQ (databases), Foundry IQ (AI), Web IQ (bing, search)
+- Agent365: Identity, data, security, threat protection, endpoint, registration, observability etc. 
 
 ### M365 Copilot:
 Enabling developer mode: To enable developer mode, in Copilot Chat, type `-developer on`. To disable developer mode, type `-developer off`.
