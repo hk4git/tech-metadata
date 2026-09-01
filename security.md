@@ -154,6 +154,23 @@ You may need to sign-in to devtunnel using command `devtunnel login` first
  - Click an open with Copilot & it should look something like below:
 8. Ask agent a question and it should hit your local app api (solution that run in step 3)
  
+# Certificate Knowledge
+
+#### How to check if certificate is CA
+
+| Check                  | Root CA                         | Server certificate         |
+| ---------------------- | ------------------------------- | -------------------------- |
+| **Subject**            | CA name                         | Server name / organization |
+| **Issuer**             | Same as Subject (self-signed)   | Different CA name          |
+| **Basic Constraints**  | `Subject Type=CA`               | Usually not a CA           |
+| **Enhanced Key Usage** | May include Certificate Signing | `Server Authentication`    |
+
+On your computer, install only:
+- **Root CA certificate** → `Trusted Root Certification Authorities`
+- **Intermediate CA certificate(s)**, if any → `Intermediate Certification Authorities`
+Do not install the server(Exchange)/normal certificate into a trusted certificate store.
+
+
 # Knowledge
 Creating **user managed identity** in azure portal creates - **Enterprise Application** in a Entra ID
 
