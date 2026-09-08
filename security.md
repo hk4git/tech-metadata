@@ -5,6 +5,44 @@
 ##### Security 5
 ###### Security 6
 
+# Token
+
+## Generate an Azure App Access Token Locally Using the Azure CLI:
+
+### Prerequisites
+
+- In the app registration, ensure the Microsoft Azure CLI client ID is authorized:
+  - Go to **Expose an API** → **Authorized client applications**
+  - Add the Azure CLI client ID: `04b07795-8ddb-461a-bbee-02f9e1bf7b46`
+  - Verify the required scopes are configured
+
+### Steps
+
+1. **Install the Azure CLI**
+   - Download from [Azure CLI official site](https://learn.microsoft.com/en-us/cli/azure/)
+   - **Open PowerShell or terminal** - `winget install --exact --id Microsoft.AzureCLI`
+
+2. **Open PowerShell or terminal**
+
+3. **Sign in to Azure**
+   - Configure Proxy settings (Optional)
+      - `$env:HTTP_PROXY  = "http://proxy.company.example:8080"`
+      - `$env:HTTPS_PROXY = "http://proxy.company.example:8080"`
+      
+   ```powershell
+   az login
+   ```
+   OR
+   `az login --allow-no-subscriptions` - if no azure subscriptions.
+
+4. **Create the access token**
+   ```powershell
+   az account get-access-token --scope "{API_SCOPE}" --query accessToken -o tsv
+   ```
+   
+   > **Note:** Use the scope from your app registration under **Expose an API**
+
+
 # Authentication and Authorization
 ## ABC-MS Tenant : Entra ID
 In ABC-MS tenant new Entra App registrations can be created with:  
