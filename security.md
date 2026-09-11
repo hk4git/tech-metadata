@@ -43,6 +43,36 @@
    > **Note:** Use the scope from your app registration under **Expose an API**
 
 
+# Frontend SSO / Microsoft
+## Auth/SSO/NAA/MSAL
+  - ID token: for the task pane to know basic user identity, such as name/email.
+  - Access token: to call a protected resource, such as Microsoft Graph or the Backend API.
+  - Refresh token: MSAL keeps and uses it internally to renew tokens; your add-in does not receive it directly.
+  - MSAL handles caching automatically, default is `sessionStorage`. Configure cacheLocation: `memoryStorage`.
+
+The openid, profile, and offline_access are identity/session scopes, not permissions to call an API.
+- openid — authenticate the user.
+- profile — provide basic profile claims.
+- offline_access — let MSAL renew tokens.
+
+An `ID token` is not generally useful by itself for an Outlook add-in unless the task pane wants to display basic identity information.
+
+`aud`: Identifies the intended audience of the token. In v2.0 tokens, this value is always the client ID of the API. In v1.0 tokens, 
+it can be the client ID or the resource URI used in the request. The value can depend on how the client requested the token.
+v2 access token: API’s client ID GUID, e.g. "aud": "11111111-..."
+v1 access token: API client ID or its Application ID URI, e.g. "aud": "api://11111111-..."
+
+**Redirect URLs:** 
+- `http://localhost:5173` is your normal SPA page. It loads React, MSAL, routes, effects, and UI.
+- `http://localhost:5173/redirect.html` is a separate minimal MSAL callback page. During `ssoSilent`, Entra signs in inside a hidden iframe and redirects that iframe back to the configured redirect URI with the authorization response in the URL hash. The callback page’s only job is to run MSAL’s redirect bridge and send that response back to the main app.
+If Entra redirects the hidden iframe to the SPA root instead, the whole app loads again inside the iframe. That can trigger new auth calls, alter the response hash, or cause iframe-navigation errors/timeouts.
+- Both URLs must be registered because Entra only redirects to exact URLs allowed by the app registration. `localhost:5173` and `localhost:5173/redirect.html` are different redirect URIs.
+  `The timeout guidance confirms that an iframe timeout occurs when the redirect bridge does not receive/broadcast Entra’s response; increasing the timeout helps only latency, while a frame-busted prompt=none response means Entra requires interactive sign-in.`
+  Refer - https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/errors.md#timed_out
+
+### References:
+- https://learn.microsoft.com/en-us/entra/identity-platform/authentication-flows-app-scenarios
+
 # Authentication and Authorization
 ## ABC-MS Tenant : Entra ID
 In ABC-MS tenant new Entra App registrations can be created with:  
