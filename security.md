@@ -70,6 +70,20 @@ If Entra redirects the hidden iframe to the SPA root instead, the whole app load
   `The timeout guidance confirms that an iframe timeout occurs when the redirect bridge does not receive/broadcast Entra’s response; increasing the timeout helps only latency, while a frame-busted prompt=none response means Entra requires interactive sign-in.`
   Refer - https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/errors.md#timed_out
 
+#### Silent SSO
+- If no active user session available then silent SSO can not happen.
+- If Entra needs credentials, MFA, account selection, consent, or policy approval, it cannot show that UI inside the hidden iframe. It returns an error such as `login_required` or `interaction_required`; your app then uses the visible interactive sign-in flow.
+
+#### Cookies
+- Cookies are stored on the client side—in the user’s browser.
+But each cookie belongs to a specific domain:
+  - Your app can access cookies for `localhost:5173` only, subject to cookie settings.
+  - Microsoft Entra owns cookies for `login.microsoftonline.com`.
+  - Your app cannot read Entra’s cookies directly.
+During silent SSO, the hidden iframe loads `login.microsoftonline.com`. The browser automatically sends Entra’s own session cookies to Entra, which lets Entra determine whether the user is already signed in.
+The server can set cookies using an HTTP Set-Cookie response header, but the browser stores and sends them afterward.
+
+
 ### References:
 - https://learn.microsoft.com/en-us/entra/identity-platform/authentication-flows-app-scenarios
 
